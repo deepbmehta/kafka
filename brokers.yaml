@@ -17,12 +17,16 @@ spec:
         ports:
         - containerPort: 9092
         env:
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         - name: KAFKA_BROKER_ID
           value: "1"
         - name: KAFKA_ADVERTISED_PORT
           value: "9092"
         - name: KAFKA_ADVERTISED_HOST_NAME
-          value: 172.31.25.198
+          value: $(MY_POD_IP)
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: zoo1:2181
 ---
@@ -45,12 +49,16 @@ spec:
         ports:
         - containerPort: 9092
         env:
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         - name: KAFKA_BROKER_ID
           value: "2"
         - name: KAFKA_ADVERTISED_PORT
           value: "9092"
         - name: KAFKA_ADVERTISED_HOST_NAME
-          value: 172.31.26.5
+          value: $(MY_POD_IP)
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: zoo1:2181
 ---
@@ -73,11 +81,15 @@ spec:
         ports:
         - containerPort: 9092
         env:
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         - name: KAFKA_BROKER_ID
           value: "3"
         - name: KAFKA_ADVERTISED_PORT
           value: "9092"
         - name: KAFKA_ADVERTISED_HOST_NAME
-          value: 172.31.26.6
+          value: $(MY_POD_IP)
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: zoo1:2181
