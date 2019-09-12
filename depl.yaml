@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: kafkacat-pod1-xshohar-consumer1 
+ namespace: deep-kafka
+spec:
+ containers:
+ - name: kafkacat
+   image: confluentinc/cp-kafkacat
+   ports: [{containerPort: 80}]
+   command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
