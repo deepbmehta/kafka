@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: python-producer
+
+spec:
+ containers:
+ - name: python-producer
+   image: deepbmehta/python-producer
+   ports: [{containerPort: 80}]

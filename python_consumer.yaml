@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: python-consumer
+spec:
+ containers:
+ - name: python-consumer
+   image: deepbmehta/python-consumer
+   ports: [{containerPort: 80}]

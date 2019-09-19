@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
  name: kafkacat-consumer-pod2
- namespace: deep-kafka
+ 
 spec:
  containers:
  - name: kafkacat
